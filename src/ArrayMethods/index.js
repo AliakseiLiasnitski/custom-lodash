@@ -1,0 +1,11 @@
+module.exports.chunk = require('./chunk');
+module.exports.compactchunk = require('./compact');
+module.exports.concat = require('./concat');
+module.exports.drop = require('./drop');
+module.exports.dropWhile = require('./dropWhile');
+module.exports.filter = require('./filter');
+module.exports.find = require('./find');
+module.exports.includes = require('./includes');
+module.exports.map = require('./map');
+module.exports.take = require('./take');
+module.exports.zip = require('./zip');
