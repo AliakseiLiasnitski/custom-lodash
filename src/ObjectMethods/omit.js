@@ -1,9 +1,10 @@
 const map = require('../ArrayMethods/map');
 const concat = require('../ArrayMethods/concat');
 const property = require('../UtilMethods/property');
+const assign = require('./assign');
 
 const removeProp = (object, path) => {
-    const obj = JSON.parse(JSON.stringify(object));
+    const obj = assign({}, object);
 
     if (path.length === 1) {
         delete obj[path[0]];
