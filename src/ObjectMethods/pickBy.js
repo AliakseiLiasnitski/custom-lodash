@@ -1,4 +1,4 @@
-const pickBy = (collection, cb) => {
+function pickBy(collection, cb) {
     const objResPickBy = {};
     for (let key in collection) {
         if (cb(collection[key])) {

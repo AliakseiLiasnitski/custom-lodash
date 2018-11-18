@@ -1,12 +1,13 @@
 const keys = require('./keys');
+const forEach = require('../ArrayMethods/forEach');
 
-const toPairs = (obj) => {
-    const masResToPairs = [];
-    const masProperty = keys(obj);
-    for (let i = 0; i < masProperty.length; i++) {
-        masResToPairs.push([masProperty[i], obj[masProperty[i]]]);
-    }
-    return masResToPairs;
+function toPairs(obj) {
+    const arrResToPairs = [];
+    const arrProperty = keys(obj);
+    forEach(arrProperty, (item) => {
+        arrResToPairs.push([item, obj[item]]);
+    });
+    return arrResToPairs;
 }
 
 module.exports = toPairs;

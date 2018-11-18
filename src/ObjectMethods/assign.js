@@ -1,12 +1,13 @@
 const keys = require('./keys');
+const forEach = require('../ArrayMethods/forEach');
 
-const assign = (obj, ...arg) => {
-    for (let i = 0; i < arg.length; i++) {
-        const masProp = keys(arg[i]);
-        for (let j = 0; j < masProp.length; j++) {
-            obj[masProp[j]] = arg[i][masProp[j]];
-        }
-    }
+function assign(obj, ...arg) {
+    forEach(arg, (itemArg) => {
+        const masProp = keys(itemArg);
+        forEach(masProp, (itemProp) => {
+            obj[itemProp] = itemArg[itemProp];
+        })
+    });
     return obj;
 }
 

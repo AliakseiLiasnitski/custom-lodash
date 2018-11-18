@@ -1,11 +1,13 @@
-const compact = (arr) => {
-    const masResCompact = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i]) {
-            masResCompact.push(arr[i]);
+const forEach = require('./forEach');
+
+function compact(arr) {
+    const arrResCompact = [];
+    forEach(arr, (item) => {
+        if (item) {
+            arrResCompact.push(item);
         }
-    }
-    return masResCompact;
+    });
+    return arrResCompact;
 }
 
 module.exports = compact;

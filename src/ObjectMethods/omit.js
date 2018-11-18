@@ -2,8 +2,9 @@ const map = require('../ArrayMethods/map');
 const concat = require('../ArrayMethods/concat');
 const property = require('../UtilMethods/property');
 const assign = require('./assign');
+const forEach = require('../ArrayMethods/forEach');
 
-const removeProp = (object, path) => {
+function removeProp(object, path) {
     const obj = assign({}, object);
 
     if (path.length === 1) {
@@ -11,25 +12,25 @@ const removeProp = (object, path) => {
     }
 
     let temp = obj;
-    for (let i = 0; i < path.length; i++) {
-        if (i !== path.length - 1) {
-            temp = temp[path[i]];
+    forEach(path, (item, index) => {
+        if (index !== path.length - 1) {
+            temp = temp[item];
         } else {
-            delete temp[path[i]];
+            delete temp[item];
         }
-    }
+    });
     return obj;
 }
 
-const omit = (obj, ...arg) => {
-    let objResOmit = JSON.parse(JSON.stringify(obj));
-    const masArg = map(concat([], ...arg), (item) => item.split('.'));
-    for (let i = 0; i < masArg.length; i++) {
-        const valueProp = property(masArg[i])(obj);
+function omit(obj, ...arg) {
+    let objResOmit = assign({}, obj);
+    const arrArg = map(concat([], ...arg), (item) => item.split('.'));
+    forEach(arrArg, (item) => {
+        const valueProp = property(item)(obj);
         if (valueProp !== undefined) {
-            objResOmit = removeProp(objResOmit, masArg[i]);
+            objResOmit = removeProp(objResOmit, item);
         }
-    }
+    });
     return objResOmit;
 }
 

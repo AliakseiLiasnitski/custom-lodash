@@ -2,7 +2,7 @@ const matches = require('../UtilMethods/matches');
 const matchesProperty = require('../UtilMethods/matchesProperty');
 const property = require('../UtilMethods/property');
 
-const find = (objects, predicate) => {
+function find(objects, predicate) {
     if (Array.isArray(predicate)) {
         predicate = matchesProperty(predicate[0], predicate[1]);
     } else if (typeof predicate === 'object') {

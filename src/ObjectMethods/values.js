@@ -1,4 +1,4 @@
-const values = (obj) => {
+function values(obj) {
     const arrResValues = [];
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {

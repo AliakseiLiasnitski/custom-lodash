@@ -3,7 +3,7 @@ const matchesProperty = require('../UtilMethods/matchesProperty');
 const property = require('../UtilMethods/property');
 const drop = require('./drop');
 
-const dropWhile = (objects, predicate) => {
+function dropWhile(objects, predicate) {
     let index = 0;
     if (Array.isArray(predicate)) {
         predicate = matchesProperty(predicate[0], predicate[1]);

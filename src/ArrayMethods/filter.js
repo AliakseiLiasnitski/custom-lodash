@@ -1,9 +1,10 @@
 const matches = require('../UtilMethods/matches');
 const matchesProperty = require('../UtilMethods/matchesProperty');
 const property = require('../UtilMethods/property');
+const forEach = require('./forEach');
 
-const filter = (objects, predicate) => {
-    const masResFilter = [];
+function filter(objects, predicate) {
+    const arrResFilter = [];
     if (Array.isArray(predicate)) {
         predicate = matchesProperty(predicate[0], predicate[1]);
     } else if (typeof predicate === 'object') {
@@ -11,12 +12,12 @@ const filter = (objects, predicate) => {
     } else if (typeof predicate === 'string') {
         predicate = property(predicate);
     }
-    for (let i = 0; i < objects.length; i++) {
-        if (!!predicate(objects[i])) {
-            masResFilter.push(objects[i]);
+    forEach(objects, (item) => {
+        if (!!predicate(item)) {
+            arrResFilter.push(item);
         }
-    }
-    return masResFilter;
+    });
+    return arrResFilter;
 }
 
 module.exports = filter;

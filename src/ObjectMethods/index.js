@@ -5,3 +5,5 @@ module.exports.omitBy = require('./omitBy');
 module.exports.pick = require('./pick');
 module.exports.pickBy = require('./pickBy');
 module.exports.toPairs = require('./toPairs');
+module.exports.values = require('./values');
+module.exports.assign = require('./assign');

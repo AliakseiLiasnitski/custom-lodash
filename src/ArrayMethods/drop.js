@@ -1,10 +1,13 @@
-const drop = (arr, n = 1) => {
+const forEach = require('./forEach');
+const slice = require('./slice');
+
+function drop(arr, n = 1) {
     if (Number.isInteger(n)) {
-        const masResDrop = [];
-        for (; n < arr.length; n++) {
-            masResDrop.push(arr[n]);
-        }
-        return masResDrop;
+        const arrResDrop = [];
+        forEach(slice(arr, n), (item) => {
+            arrResDrop.push(item);
+        })
+        return arrResDrop;
     }
 }
 

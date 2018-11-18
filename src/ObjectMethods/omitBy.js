@@ -1,4 +1,4 @@
-const omitBy = (collection, cb) => {
+function omitBy(collection, cb) {
     const objResOmitBy = {};
     for (let key in collection) {
         if (!cb(collection[key])) {

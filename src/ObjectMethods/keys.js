@@ -1,4 +1,4 @@
-const keys = (obj) => {
+function keys(obj) {
     const arrResKeys = [];
     for (let key in obj) {
         if (obj.hasOwnProperty(key)) {
