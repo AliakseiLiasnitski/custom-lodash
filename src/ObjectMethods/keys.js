@@ -1,10 +1,11 @@
 const keys = (obj) => {
-    const copy = JSON.parse(JSON.stringify(obj))
-    const masResKeys = [];
-    for (let key in copy) {
-        masResKeys.push(key);
+    const arrResKeys = [];
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            arrResKeys.push(key);
+        }
     }
-    return masResKeys;
+    return arrResKeys;
 }
 
 module.exports = keys;
